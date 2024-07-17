@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using CockatriceArtFinder.Configuration;
 using System.Net.Http;
+using System.Windows.Media;
 using CockatriceArtFinder.Scryfall.Models;
 
 namespace CockatriceArtFinder
@@ -103,6 +104,10 @@ namespace CockatriceArtFinder
                 bitmap.EndInit();
 
                 image.Source = bitmap;
+                image.Height = 200;
+                image.Width = 143;
+                image.Stretch = Stretch.UniformToFill;
+                image.StretchDirection = StretchDirection.Both;
                 image.MouseUp += CardOnMouseUp;
                 image.Tag = card;
 
