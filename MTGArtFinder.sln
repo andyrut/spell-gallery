@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CockatriceArtFinder", "CockatriceArtFinder\CockatriceArtFinder.csproj", "{6AC8B78F-7F04-4E9D-ABB1-C55C6E1A1F40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTGArtFinder", "MTGArtFinder\MTGArtFinder.csproj", "{6AC8B78F-7F04-4E9D-ABB1-C55C6E1A1F40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
