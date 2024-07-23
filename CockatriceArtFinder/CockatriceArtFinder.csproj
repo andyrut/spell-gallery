@@ -62,7 +62,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Configuration\ArtFinderSettings.cs" />
     <Compile Include="Scryfall\Models\Card.cs" />
     <Compile Include="Scryfall\Models\ImageUris.cs" />
     <Compile Include="Scryfall\Models\SearchResponse.cs" />
@@ -110,5 +109,6 @@
   <ItemGroup>
     <Resource Include="Dark Confidant.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
