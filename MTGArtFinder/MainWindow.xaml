@@ -15,9 +15,9 @@
             <ColumnDefinition Width="79*"/>
             <ColumnDefinition Width="721*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Card Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+        <Label Content="Card Search:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
         <editors:AutoCompleteTextBox x:Name="CardNameTextBox" Watermark="Please enter a card name." HorizontalAlignment="Left" Margin="29,14,0,0" VerticalAlignment="Top" Width="357" KeyUp="CardNameTextBox_KeyUp" FontSize="16" Provider="{StaticResource ResourceKey=CardsProvider}" Grid.Column="1" />
-        <Button x:Name="GoButton" Content="Go" HorizontalAlignment="Left" Margin="391,12,0,0" VerticalAlignment="Top" Click="GoButton_Click" FontSize="16" Width="34" Grid.Column="1"/>
+        <Button x:Name="GoButton" Content="Go" HorizontalAlignment="Left" Margin="391,13,0,0" VerticalAlignment="Top" Click="GoButton_Click" FontSize="16" Width="34" Grid.Column="1"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Width="457"  Margin="10,51,0,20" HorizontalAlignment="Left" Grid.ColumnSpan="2">
             <Grid x:Name="ThumbnailGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>

@@ -47,6 +47,7 @@ namespace MTGArtFinder
                 InitializeComponent();
                 
                 // TODO: Rename solution - come up with name?
+                // TODO: README
 
                 if (!Directory.Exists(customArtDirectory))
                     throw new DirectoryNotFoundException($"Cockatrice custom pics folder not found: {customArtDirectory}");
