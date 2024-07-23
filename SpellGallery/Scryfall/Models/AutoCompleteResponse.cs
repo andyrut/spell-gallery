@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace MTGArtFinder.Scryfall.Models
+namespace SpellGallery.Scryfall.Models
 {
     /// <summary>
     /// The response object for /cards/autocomplete

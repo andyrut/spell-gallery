@@ -1,16 +1,14 @@
 ﻿#region Using Directives
-
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using MTGArtFinder.Scryfall.Models;
 using Newtonsoft.Json;
-
+using SpellGallery.Scryfall.Models;
 #endregion
 
-namespace MTGArtFinder.Scryfall
+namespace SpellGallery.Scryfall
 {
     /// <summary>
     /// Collection of methods for accessing the Scryfall API

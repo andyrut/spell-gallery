@@ -1,10 +1,12 @@
 ﻿#region Using Directives
+
 using System.Collections;
 using AutoCompleteTextBox.Editors;
-using MTGArtFinder.Scryfall;
+using SpellGallery.Scryfall;
+
 #endregion
 
-namespace MTGArtFinder.AutoComplete
+namespace SpellGallery.AutoComplete
 {
     /// <summary>
     /// Auto-Complete Provider for MTG Cards

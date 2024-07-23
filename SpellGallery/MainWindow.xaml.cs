@@ -11,12 +11,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using MTGArtFinder.Scryfall;
-using MTGArtFinder.Scryfall.Models;
+using SpellGallery.Scryfall;
+using SpellGallery.Scryfall.Models;
 using Exception = System.Exception;
 #endregion
 
-namespace MTGArtFinder
+namespace SpellGallery
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

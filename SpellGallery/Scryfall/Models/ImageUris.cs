@@ -1,4 +1,4 @@
-﻿namespace MTGArtFinder.Scryfall.Models
+﻿namespace SpellGallery.Scryfall.Models
 {
     /// <summary>
     /// Collection of image URIs for a given card

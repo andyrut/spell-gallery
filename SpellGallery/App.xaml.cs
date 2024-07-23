@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MTGArtFinder
+namespace SpellGallery
 {
     /// <summary>
     /// Interaction logic for App.xaml

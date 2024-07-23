@@ -1,10 +1,10 @@
-﻿<Window x:Class="MTGArtFinder.MainWindow"
+﻿<Window x:Class="SpellGallery.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:editors="http://wpfcontrols.com/"
-        xmlns:autoComplete="clr-namespace:MTGArtFinder.AutoComplete"
+        xmlns:autoComplete="clr-namespace:SpellGallery.AutoComplete"
         mc:Ignorable="d"
         Title="MTG Art Finder" Height="710" Width="800" ResizeMode="CanMinimize" Loaded="Window_Loaded">
     <Window.Resources>

@@ -5,7 +5,7 @@ using System.Linq;
 
 #endregion
 
-namespace MTGArtFinder.Scryfall.Models
+namespace SpellGallery.Scryfall.Models
 {
     /// <summary>
     /// The error model from Scryfall

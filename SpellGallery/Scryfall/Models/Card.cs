@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MTGArtFinder.Scryfall.Models
+namespace SpellGallery.Scryfall.Models
 {
     /// <summary>
     /// An MTG card
