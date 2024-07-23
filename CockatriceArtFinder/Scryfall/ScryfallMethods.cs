@@ -1,38 +1,80 @@
 ﻿#region Using Directives
 
 using System;
-using CockatriceArtFinder.Scryfall.Models;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
+using MTGArtFinder.Scryfall.Models;
 using Newtonsoft.Json;
 
 #endregion
 
-namespace CockatriceArtFinder.Scryfall
+namespace MTGArtFinder.Scryfall
 {
-    public class ScryfallMethods
+    /// <summary>
+    /// Collection of methods for accessing the Scryfall API
+    /// </summary>
+    public static class ScryfallMethods
     {
-        public string ApiUrl { get; set; }
+        // The URL of the Scryfall API
+        private const string ApiUrl = "https://api.scryfall.com";
 
-        private HttpClient httpClient = new HttpClient();
-
-        public ScryfallMethods(string apiUrl)
+        // Reusable HTTP Client
+        private static readonly HttpClient HttpClient = new HttpClient();
+        
+        /// <summary>
+        /// Gets all unique prints of a specific card
+        /// </summary>
+        /// <param name="cardName">The card to search for</param>
+        /// <returns>List of cards</returns>
+        public static async Task<List<Card>> GetCardsByNameAsync(string cardName)
         {
-            ApiUrl = apiUrl;
+            string endpoint = $"/cards/search?unique=prints&q={Uri.EscapeUriString(cardName)}";
+            var searchResponse = await GetAsync<SearchResponse>(endpoint);
+            return searchResponse.Data;
         }
 
-        public List<Card> GetCardsByName(string cardName)
+        /// <summary>
+        /// Gets suggestions for card names from a filter
+        /// </summary>
+        /// <param name="filter">The filter criteria</param>
+        /// <returns>List of suggestions that meet the filter criteria</returns>
+        public static async Task<List<string>> AutoCompleteAsync(string filter)
         {
-            string url = $"{ApiUrl}/cards/search?unique=prints&q={Uri.EscapeUriString(cardName)}";
-            var response = httpClient.GetAsync(url).Result;
-            string responseString = response.Content.ReadAsStringAsync().Result;
+            string endpoint = $"/cards/autocomplete?q={Uri.EscapeUriString(filter)}";
+            var autoCompleteResponse = await GetAsync<AutoCompleteResponse>(endpoint);
+            return autoCompleteResponse.Data;
+        }
+
+        // GET REST operation helper
+        private static async Task<T> GetAsync<T>(string endpoint)
+        {
+            string url = $"{ApiUrl}{endpoint}";
+            var response = await HttpClient.GetAsync(url);
+            string responseString = await response.Content.ReadAsStringAsync();
+
             if (!response.IsSuccessStatusCode)
-                throw new WebException($"Error searching for [{cardName}]: {(int) response.StatusCode} - {responseString}");
-            var searchResponse = JsonConvert.DeserializeObject<SearchResponse>(responseString);
-            if (searchResponse == null)
-                throw new WebException("Scryfall search returned invalid response");
-            return searchResponse.Data;
+            {
+                string errorMessage;
+                try
+                {
+                    var error = JsonConvert.DeserializeObject<Error>(responseString);
+                    errorMessage = error?.Message ?? responseString;
+                }
+                catch
+                {
+                    errorMessage = responseString;
+                }
+
+                throw new WebException($"{(int)response.StatusCode} Error accessing Scrfall URL [{url}]:{Environment.NewLine}{Environment.NewLine}{errorMessage}");
+            }
+
+            var apiResponse = JsonConvert.DeserializeObject<T>(responseString);
+            if (apiResponse == null)
+                throw new WebException("Scryfall returned invalid response");
+            
+            return apiResponse;
         }
     }
 }

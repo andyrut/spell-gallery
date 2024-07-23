@@ -1,15 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
-namespace CockatriceArtFinder.Scryfall.Models
+namespace MTGArtFinder.Scryfall.Models
 {
+    /// <summary>
+    /// An MTG card
+    /// </summary>
     public class Card
     {
+        /// <summary>
+        /// The name of the card
+        /// </summary>
         public string Name { get; set; }
 
-        public ImageUris Image_Uris { get; set; }
+        /// <summary>
+        /// The image URI object for the card
+        /// </summary>
+        [JsonProperty("image_uris")]
+        public ImageUris ImageUris { get; set; }
     }
 }

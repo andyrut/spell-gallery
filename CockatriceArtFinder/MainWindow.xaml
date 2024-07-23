@@ -1,26 +1,34 @@
-﻿<Window x:Class="CockatriceArtFinder.MainWindow"
+﻿<Window x:Class="MTGArtFinder.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CockatriceArtFinder"
+        xmlns:editors="http://wpfcontrols.com/"
+        xmlns:autoComplete="clr-namespace:MTGArtFinder.AutoComplete"
         mc:Ignorable="d"
-        Title="Cockatrice Art Finder" Height="690" Width="800" ResizeMode="CanMinimize">
+        Title="MTG Art Finder" Height="710" Width="800" ResizeMode="CanMinimize" Loaded="Window_Loaded">
+    <Window.Resources>
+        <autoComplete:CardsProvider x:Key="CardsProvider"/>
+    </Window.Resources>
     <Grid>
-        <Label Content="Card Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox x:Name="CardNameTextBox" HorizontalAlignment="Left" Margin="108,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="357" KeyUp="CardNameTextBox_KeyUp" FontSize="16" />
-        <Button x:Name="GoButton" Content="Go" HorizontalAlignment="Left" Margin="470,12,0,0" VerticalAlignment="Top" Click="GoButton_Click" FontSize="16" Width="34"/>
-        <!-- TODO: Fix scrollbar overlap -->
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Width="437"  Margin="10,41,10,10" HorizontalAlignment="Left" VerticalAlignment="Stretch">
-            <Grid x:Name="ThumbnailGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,30,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="79*"/>
+            <ColumnDefinition Width="721*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Card Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2"/>
+        <editors:AutoCompleteTextBox x:Name="CardNameTextBox" Watermark="Please enter a card name." HorizontalAlignment="Left" Margin="29,14,0,0" VerticalAlignment="Top" Width="357" KeyUp="CardNameTextBox_KeyUp" FontSize="16" Provider="{StaticResource ResourceKey=CardsProvider}" Grid.Column="1" />
+        <Button x:Name="GoButton" Content="Go" HorizontalAlignment="Left" Margin="391,12,0,0" VerticalAlignment="Top" Click="GoButton_Click" FontSize="16" Width="34" Grid.Column="1"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Width="457"  Margin="10,51,0,20" HorizontalAlignment="Left" Grid.ColumnSpan="2">
+            <Grid x:Name="ThumbnailGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="143"></ColumnDefinition>
+                    <ColumnDefinition Width="143"></ColumnDefinition>
+                    <ColumnDefinition Width="143"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
             </Grid>
         </ScrollViewer>
-        <Label Content="Greatness, at any cost." HorizontalAlignment="Left" Margin="509,11,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.348" Foreground="#FF696767" FontStyle="Italic"/>
-        <Image x:Name="PreviewImage" HorizontalAlignment="Left" Height="382" Margin="472,41,0,0" VerticalAlignment="Top" Width="343"/>
+        <Label x:Name="SavedLabel" Content="Selected print saved!" HorizontalAlignment="Left" Margin="563,11,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.348" Foreground="Green" FontWeight="Bold" Opacity="0" Grid.Column="1"/>
+        <Image x:Name="PreviewImage" Height="359" Margin="395,51,12,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="BetaLabel" Grid.Column="1" Content="This is BETA software." HorizontalAlignment="Left" Margin="524,600,0,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold"/>
     </Grid>
 </Window>

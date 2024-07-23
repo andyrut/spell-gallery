@@ -7,13 +7,13 @@ using System.Collections.Generic;
 namespace MTGArtFinder.Scryfall.Models
 {
     /// <summary>
-    /// The response model for /cards/search
+    /// The response object for /cards/autocomplete
     /// </summary>
-    public class SearchResponse
+    public class AutoCompleteResponse
     {
         /// <summary>
-        /// A list of cards returned from a card search
+        /// The list of suggestions for the given filter
         /// </summary>
-        public List<Card> Data { get; set; }
+        public List<string> Data { get; set; }
     }
 }
