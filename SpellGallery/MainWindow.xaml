@@ -6,7 +6,7 @@
         xmlns:editors="http://wpfcontrols.com/"
         xmlns:autoComplete="clr-namespace:SpellGallery.AutoComplete"
         mc:Ignorable="d"
-        Title="MTG Art Finder" Height="710" Width="800" ResizeMode="CanMinimize" Loaded="Window_Loaded">
+        Title="Spell Gallery" Height="710" Width="800" ResizeMode="CanMinimize" Loaded="Window_Loaded">
     <Window.Resources>
         <autoComplete:CardsProvider x:Key="CardsProvider"/>
     </Window.Resources>

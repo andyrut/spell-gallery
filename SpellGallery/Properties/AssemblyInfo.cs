@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MTG Art Finder")]
-[assembly: AssemblyDescription("Find the correct print of a card for Cockatrice.")]
+[assembly: AssemblyTitle("Spell Gallery")]
+[assembly: AssemblyDescription("Find the preferred print of each card for Cockatrice.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Andy Rutledge")]
-[assembly: AssemblyProduct("MTG Art Finder")]
+[assembly: AssemblyProduct("Spell Gallery")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
