@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using SpellGallery.Configuration;
 using SpellGallery.Scryfall;
 using SpellGallery.Scryfall.Models;
 using Exception = System.Exception;
@@ -24,16 +25,17 @@ namespace SpellGallery
     public partial class MainWindow
     {
         #region Private Data Members
-        // Path to the Cockatrice custom art directory, e.g. C:\Users\Username\AppData\Local\Cockatrice\Cockatrice\pics\CUSTOM
-        private readonly string customArtDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Cockatrice", "Cockatrice", "pics", "CUSTOM");
-
         // Reusable HTTP Client
         private readonly HttpClient httpClient = new HttpClient();
 
         // Catalog of large bitmap images by URL to quickly swap cache bitmaps on the image preview
         private readonly Dictionary<string, BitmapImage> urlBitmaps = new Dictionary<string, BitmapImage>();
 
+        // The current thumbnail the user clicked down
         private Image mouseDownThumbnail;
+
+        // The program's settings
+        private SpellGallerySettings settings;
         #endregion
 
         #region Constructors
@@ -45,16 +47,12 @@ namespace SpellGallery
             try
             {
                 InitializeComponent();
-
-                if (!Directory.Exists(customArtDirectory))
-                    throw new DirectoryNotFoundException($"Cockatrice custom pics folder not found: {customArtDirectory}");
             }
             catch (Exception ex)
             {
                 HandleException(ex);
             }
         }
-
         #endregion
 
         #region Private Event Handlers
@@ -64,6 +62,10 @@ namespace SpellGallery
             try
             {
                 CardNameTextBox.Focus();
+                settings = SpellGallerySettings.Load();
+
+                if (!Directory.Exists(settings.CustomPicsFolder))
+                    throw new DirectoryNotFoundException($"Cockatrice custom pics folder not found: {settings.CustomPicsFolder}{Environment.NewLine}{Environment.NewLine}Please use the Settings to configure your custom pics folder.");
             }
             catch (Exception ex)
             {
@@ -71,7 +73,7 @@ namespace SpellGallery
             }
         }
 
-        // User taps a key, catches <ENTER>
+        // User taps a key (for catching <ENTER>)
         private async void CardNameTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             try
@@ -129,7 +131,7 @@ namespace SpellGallery
                 var card = (Card)image.Tag;
 
                 var imageBytes = httpClient.GetByteArrayAsync(card.ImageUris.Large).Result;
-                var artPath = Path.Combine(customArtDirectory, $"{card.Name}.jpg");
+                var artPath = Path.Combine(settings.CustomPicsFolder, $"{card.Name}.jpg");
                 
                 File.WriteAllBytes(artPath, imageBytes);
 
@@ -188,6 +190,24 @@ namespace SpellGallery
                 HandleException(ex);
             }
         }
+
+        // User clicked the settings buton
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var settingsWindow = new SettingsWindow(settings);
+                if (settingsWindow.ShowDialog() == true)
+                {
+                    settings = settingsWindow.Settings;
+                    settings.Save();
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
         #endregion
 
         #region Private Methods
@@ -227,6 +247,7 @@ namespace SpellGallery
             }
         }
 
+        // Given a card and location, creates a thumbnail image in the grid
         private Image CreateThumbnailImage(Card card, int col, int row)
         {
             if (card.ImageUris?.Small == null)
@@ -255,6 +276,7 @@ namespace SpellGallery
             return image;
         }
 
+        // Animate the image to indicate it's been selected/clicked
         private void Animate(Image image)
         {
             image.RenderTransform = new ScaleTransform()
