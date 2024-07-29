@@ -7,6 +7,7 @@ A little helper Windows app that assists in the selection of card art/edition fo
 ![Spell Gallery screenshot](https://raw.githubusercontent.com/andyrut/spell-gallery/master/screenshot.png "Spell Gallery screenshot")
 
 ## Version History
+* v0.1.1.2 - Accept and User-Agent headers in Scryfall requests
 * v0.1.0.1 - Added setting for custom pics folder
 * v0.0.0.0 - Initial BETA release
 
