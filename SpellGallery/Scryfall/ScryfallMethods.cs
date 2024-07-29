@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Reflection;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SpellGallery.Scryfall.Models;
@@ -20,7 +22,13 @@ namespace SpellGallery.Scryfall
 
         // Reusable HTTP Client
         private static readonly HttpClient HttpClient = new HttpClient();
-        
+
+        static ScryfallMethods()
+        {
+            HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpClient.DefaultRequestHeaders.Add("User-Agent", $"SpellGallery/{Assembly.GetCallingAssembly().GetName().Version}");
+        }
+
         /// <summary>
         /// Gets all unique prints of a specific card
         /// </summary>
