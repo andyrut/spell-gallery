@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using log4net;
+using log4net.Config;
 using SpellGallery.Configuration;
 using SpellGallery.Scryfall;
 using SpellGallery.Scryfall.Models;
@@ -25,6 +27,8 @@ namespace SpellGallery
     public partial class MainWindow
     {
         #region Private Data Members
+        private readonly ILog log = LogManager.GetLogger(typeof(MainWindow));
+
         // Reusable HTTP Client
         private readonly HttpClient httpClient = new HttpClient();
 
@@ -46,6 +50,7 @@ namespace SpellGallery
         {
             try
             {
+                XmlConfigurator.Configure();
                 InitializeComponent();
             }
             catch (Exception ex)
@@ -328,6 +333,7 @@ namespace SpellGallery
         // Show the error to the user
         private void HandleException(Exception ex)
         {
+            log.Error("Encountered an error.", ex);
             MessageBox.Show($"Error: {ex.Message}", Title);
         }
         #endregion
