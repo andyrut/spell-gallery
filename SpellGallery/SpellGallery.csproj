@@ -56,9 +56,6 @@
     <ApplicationIcon>Dark Confidant.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoCompleteTextBox, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoCompleteTextBox.1.7.2\lib\net48\AutoCompleteTextBox.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.17.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.17\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -158,6 +155,14 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AutoCompleteTextBox\AutoCompleteTextBox.csproj">
+      <Project>{9e75af9f-bb1e-42e5-a59e-d42fbbfef2e0}</Project>
+      <Name>AutoCompleteTextBox</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="README.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

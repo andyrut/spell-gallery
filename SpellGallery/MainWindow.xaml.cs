@@ -51,6 +51,7 @@ namespace SpellGallery
             try
             {
                 XmlConfigurator.Configure();
+                log.Info("Spell Gallery program started.");
                 InitializeComponent();
             }
             catch (Exception ex)
@@ -67,6 +68,7 @@ namespace SpellGallery
             try
             {
                 CardNameTextBox.Focus();
+                CardNameTextBox.ItemSelected += CardNameTextBoxOnItemSelected;
                 settings = SpellGallerySettings.Load();
 
                 if (!Directory.Exists(settings.CustomPicsFolder))
@@ -96,6 +98,19 @@ namespace SpellGallery
 
         // User clicks the Go button
         private async void GoButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await GoAsync();
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+
+        // User selected an item from the auto-complete dropdown list
+        private async void CardNameTextBoxOnItemSelected(object sender, EventArgs e)
         {
             try
             {
@@ -213,6 +228,19 @@ namespace SpellGallery
                 HandleException(ex);
             }
         }
+
+        // Form is unloaded
+        private void Window_Unloaded(object sender, EventArgs e)
+        {
+            try
+            {
+                log.Info("Spell Gallery program completed.");
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
         #endregion
 
         #region Private Methods
@@ -222,6 +250,8 @@ namespace SpellGallery
             string cardName = CardNameTextBox.Text;
             if (string.IsNullOrEmpty(cardName))
                 return;
+
+            log.Debug($"Searching Scryfall for: {cardName}");
 
             var cards = await ScryfallMethods.GetCardsByNameAsync(cardName);
 

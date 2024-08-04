@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFrameworks>net452;net472;net48;netcoreapp3.1;net6.0-windows</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <Version>0.7.2</Version>
+    <PackageProjectUrl>https://github.com/quicoli/WPF-AutoComplete-TextBox</PackageProjectUrl>
+    <RepositoryType />
+    <RepositoryUrl>https://github.com/quicoli/WPF-AutoComplete-TextBox</RepositoryUrl>
+    <PackageTags>wpf, autocomplete, usercontrol</PackageTags>
+    <PackageIconUrl>https://github.com/quicoli/WPF-AutoComplete-TextBox/blob/develop/AutoCompleteTextBox/Logo/AutoCompleteTextBox.ico?raw=true</PackageIconUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <ApplicationIcon>AutoCompleteTextBox.ico</ApplicationIcon>
+    <PackageReleaseNotes>
+		AutoCompleteComboBox.Watermark visible fix.
+	</PackageReleaseNotes>
+    <Description>An auto complete textbox and combo box for WPF</Description>
+    <PackageIcon>AutoCompleteTextBox.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+</Project>
