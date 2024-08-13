@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
@@ -136,7 +137,7 @@ namespace SpellGallery
         }
 
         // User clicks up a thumbnail card
-        private void CardOnMouseUp(object sender, MouseButtonEventArgs e)
+        private async void CardOnMouseUp(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -149,11 +150,7 @@ namespace SpellGallery
                     return;
 
                 var card = (Card)image.Tag;
-
-                var imageBytes = httpClient.GetByteArrayAsync(card.ImageUris.Large).Result;
-                var artPath = Path.Combine(settings.CustomPicsFolder, $"{card.Name}.jpg");
-                
-                File.WriteAllBytes(artPath, imageBytes);
+                await card.StoreAsync(httpClient, settings);
 
                 Animate(image);
             }
@@ -254,6 +251,7 @@ namespace SpellGallery
             log.Debug($"Searching Scryfall for: {cardName}");
 
             var cards = await ScryfallMethods.GetCardsByNameAsync(cardName);
+            cards = cards.Select(x => (Card)x.Clone()).ToList();
 
             ThumbnailGrid.Children.Clear();
             ThumbnailGrid.RowDefinitions.Clear();

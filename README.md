@@ -3,6 +3,10 @@
 ## Description
 A Windows app that assists in the selection of card art/print for specific cards in MTG Cockatrice.
 
+## Download
+
+You can download the latest installer from [the Releases page on GitHub](https://github.com/andyrut/spell-gallery/releases).
+
 ## Screenshot
 ![Spell Gallery screenshot](https://raw.githubusercontent.com/andyrut/spell-gallery/master/screenshot.png "Spell Gallery screenshot")
 
@@ -12,6 +16,8 @@ A Windows app that assists in the selection of card art/print for specific cards
 - [log4net](https://github.com/apache/logging-log4net) - by Apache Software Foundation - [Apache License](https://github.com/apache/logging-log4net?tab=Apache-2.0-1-ov-file)
 
 ## Version History
+- v0.4.0.6 - Handles double-faced cards, Downloads section in README
+- v0.3.0.5 - Added installer MSI
 - v0.2.0.4 - Selecting item from card search auto-complete dropdown activates prints lookup
 - v0.1.2.3 - Added logging
 - v0.1.1.2 - Accept and User-Agent headers in Scryfall requests

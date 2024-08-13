@@ -89,6 +89,7 @@
     <Compile Include="Configuration\SpellGallerySettings.cs" />
     <Compile Include="Scryfall\Models\AutoCompleteResponse.cs" />
     <Compile Include="Scryfall\Models\Card.cs" />
+    <Compile Include="Scryfall\Models\CardFace.cs" />
     <Compile Include="Scryfall\Models\Error.cs" />
     <Compile Include="Scryfall\Models\ImageUris.cs" />
     <Compile Include="Scryfall\Models\SearchResponse.cs" />

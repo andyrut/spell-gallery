@@ -58,12 +58,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20C225A3E19E059FF0F0358970631AD8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_6D317B3A0A834720AFD9079163B894D0"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -85,6 +79,12 @@
         "OwnerKey" = "8:_DDE2F06CC86962E436AE76DF7A5270A1"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_20C225A3E19E059FF0F0358970631AD8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -103,6 +103,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -384,15 +392,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Spell Gallery"
-        "ProductCode" = "8:{A24AEF5D-EF8F-4F2C-A432-466F28740E0E}"
-        "PackageCode" = "8:{10E23BE1-4060-4E30-8690-6957AC57C140}"
+        "ProductCode" = "8:{3C41CBA7-6845-4ED9-99EB-E96F7E632373}"
+        "PackageCode" = "8:{25529AFB-3A50-42B5-8B7B-83972147E639}"
         "UpgradeCode" = "8:{244AE45B-B465-4CFA-9B93-19C55B779A8F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.3.0"
+        "ProductVersion" = "8:0.4.0"
         "Manufacturer" = "8:Andy Rutledge"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/andyrut/spell-gallery/issues"
@@ -934,7 +942,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6D317B3A0A834720AFD9079163B894D0"
             {
-            "SourcePath" = "8:..\\SpellGallery\\obj\\Release\\SpellGallery.exe"
+            "SourcePath" = "8:..\\SpellGallery\\obj\\Debug\\SpellGallery.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
