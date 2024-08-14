@@ -6,7 +6,7 @@
         xmlns:autoComplete="clr-namespace:SpellGallery.AutoComplete"
         xmlns:editors="http://wpfcontrols.com/"
         mc:Ignorable="d"
-        Title="Spell Gallery" Height="710" Width="800" ResizeMode="CanMinimize" Loaded="Window_Loaded" Unloaded="Window_Unloaded">
+        Title="Spell Gallery" Height="710" MinHeight="710" MinWidth="790" Width="790" Loaded="Window_Loaded" Unloaded="Window_Unloaded">
     <Window.Resources>
         <autoComplete:CardsProvider x:Key="CardsProvider"/>
     </Window.Resources>
@@ -14,18 +14,15 @@
         <Label Content="Card Search:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="SemiBold"/>
         <editors:AutoCompleteTextBox x:Name="CardNameTextBox" Watermark="Please enter a card name." HorizontalAlignment="Left" Margin="115,14,0,0" VerticalAlignment="Top" Width="357" KeyUp="CardNameTextBox_KeyUp" FontSize="16" Provider="{StaticResource ResourceKey=CardsProvider}" />
         <Button x:Name="GoButton" Content="Go" HorizontalAlignment="Left" Margin="477,13,0,0" VerticalAlignment="Top" Click="GoButton_Click" FontSize="16" Width="34"/>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Width="457"  Margin="10,51,0,20" HorizontalAlignment="Left" Grid.ColumnSpan="2">
-            <Grid x:Name="ThumbnailGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="143"></ColumnDefinition>
-                    <ColumnDefinition Width="143"></ColumnDefinition>
-                    <ColumnDefinition Width="143"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-            </Grid>
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,50,305,10" VerticalScrollBarVisibility="Auto" >
+            <WrapPanel x:Name="ThumbnailWrapPanel" Orientation="Horizontal" />
         </ScrollViewer>
         <Label x:Name="SavedLabel" Content="Selected print saved!" HorizontalAlignment="Left" Margin="522,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.348" Foreground="Green" FontWeight="Bold" Opacity="0"/>
-        <Image x:Name="PreviewImage" Height="359" Margin="395,51,12,0" VerticalAlignment="Top"/>
-        <Label x:Name="BetaLabel" Content="This is BETA software." HorizontalAlignment="Left" Margin="612,600,0,0" VerticalAlignment="Top" Foreground="Red" FontWeight="Bold"/>
-        <Button x:Name="SettingsButton" Content="Settings..." FontSize="16" HorizontalAlignment="Left" Margin="661,13,0,0" VerticalAlignment="Top" Width="86" Click="SettingsButton_Click"/>
+        <StackPanel Orientation="Vertical" Height="440" Width="285" Margin="0,51,12,0" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <Image x:Name="PreviewImage" Height="400" Width="285" />
+            <Label x:Name="ClickLabel" Content="Click a card on the left to store it." HorizontalAlignment="Center" Margin="10" Visibility="Hidden" />
+        </StackPanel>
+        <Label x:Name="BetaLabel" Content="This is BETA software." HorizontalAlignment="Right" Margin="10,10,10,10" VerticalAlignment="Bottom" Foreground="Red" FontWeight="Bold"/>
+        <Button x:Name="SettingsButton" Content="Settings..." FontSize="16" HorizontalAlignment="Right" Margin="0,13,10,0" VerticalAlignment="Top" Width="86" Click="SettingsButton_Click"/>
     </Grid>
 </Window>

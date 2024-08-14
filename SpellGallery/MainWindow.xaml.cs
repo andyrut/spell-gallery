@@ -160,19 +160,6 @@ namespace SpellGallery
             }
         }
 
-        // User's mouse leaves a thumbnail card
-        private void CardOnMouseLeave(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                PreviewImage.Source = null;
-            }
-            catch (Exception ex)
-            {
-                HandleException(ex);
-            }
-        }
-
         // User's mouse enters a thumbnail card
         private void CardOnMouseEnter(object sender, MouseEventArgs e)
         {
@@ -201,6 +188,21 @@ namespace SpellGallery
                 }
 
                 PreviewImage.Source = bitmap;
+                ClickLabel.Visibility = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+
+        // User's mouse leaves a thumbnail card
+        private void CardOnMouseLeave(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                PreviewImage.Source = null;
+                ClickLabel.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
             {
@@ -253,35 +255,20 @@ namespace SpellGallery
             var cards = await ScryfallMethods.GetCardsByNameAsync(cardName);
             cards = cards.Select(x => (Card)x.Clone()).ToList();
 
-            ThumbnailGrid.Children.Clear();
-            ThumbnailGrid.RowDefinitions.Clear();
-
-            int col = 0;
-            int row = 0;
-
+            ThumbnailWrapPanel.Children.Clear();
+            
             foreach (var card in cards)
             {
-                if (col == 0)
-                    ThumbnailGrid.RowDefinitions.Add(new RowDefinition());
-
-                var image = CreateThumbnailImage(card, col, row);
+                var image = CreateThumbnailImage(card);
                 if (image == null)
                     continue;
 
-                ThumbnailGrid.Children.Add(image);
-
-                col++;
-
-                if (col != ThumbnailGrid.ColumnDefinitions.Count)
-                    continue;
-                
-                col = 0;
-                row++;
+                ThumbnailWrapPanel.Children.Add(image);
             }
         }
 
         // Given a card and location, creates a thumbnail image in the grid
-        private Image CreateThumbnailImage(Card card, int col, int row)
+        private Image CreateThumbnailImage(Card card)
         {
             if (card.ImageUris?.Small == null)
                 return null;
@@ -302,9 +289,6 @@ namespace SpellGallery
             image.MouseEnter += CardOnMouseEnter;
             image.MouseLeave += CardOnMouseLeave;
             image.Tag = card;
-
-            image.SetValue(Grid.ColumnProperty, col);
-            image.SetValue(Grid.RowProperty, row);
 
             return image;
         }
