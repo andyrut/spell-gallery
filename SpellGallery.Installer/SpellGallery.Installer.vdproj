@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_2DA638FF4D2F45E3980D6025B7665983"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6D317B3A0A834720AFD9079163B894D0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -35,12 +41,6 @@
         {
         "MsmKey" = "8:_96556A7A59AD8181A649F4BC0D0AFFC1"
         "OwnerKey" = "8:_6D317B3A0A834720AFD9079163B894D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B66F236F50EA41038CB3C8706FC14F7D"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -110,6 +110,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -223,6 +231,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2DA638FF4D2F45E3980D6025B7665983"
+            {
+            "SourcePath" = "8:..\\SpellGallery\\SpellGallery.ico"
+            "TargetName" = "8:SpellGallery.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_96556A7A59AD8181A649F4BC0D0AFFC1"
             {
             "AssemblyRegister" = "3:1"
@@ -252,26 +280,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B66F236F50EA41038CB3C8706FC14F7D"
-            {
-            "SourcePath" = "8:..\\SpellGallery\\Dark Confidant.ico"
-            "TargetName" = "8:Dark Confidant.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D8ABD6F77C59147E79F7DE657822BA3A"
@@ -392,15 +400,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Spell Gallery"
-        "ProductCode" = "8:{3C41CBA7-6845-4ED9-99EB-E96F7E632373}"
-        "PackageCode" = "8:{25529AFB-3A50-42B5-8B7B-83972147E639}"
+        "ProductCode" = "8:{F93041C2-7B22-4FFD-936D-16C948754AF3}"
+        "PackageCode" = "8:{38F2F069-389B-4FA0-9337-B6B6965B0D5C}"
         "UpgradeCode" = "8:{244AE45B-B465-4CFA-9B93-19C55B779A8F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.4.0"
+        "ProductVersion" = "8:0.6.0"
         "Manufacturer" = "8:Andy Rutledge"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/andyrut/spell-gallery/issues"
@@ -524,7 +532,7 @@
             "Target" = "8:_6D317B3A0A834720AFD9079163B894D0"
             "Folder" = "8:_522BDE74A6C348AAA9F44E5888E3919E"
             "WorkingFolder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
-            "Icon" = "8:_B66F236F50EA41038CB3C8706FC14F7D"
+            "Icon" = "8:_2DA638FF4D2F45E3980D6025B7665983"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_708DF4CE84AA48359A8FA36F6A5C3D47"
@@ -538,7 +546,7 @@
             "Target" = "8:_6D317B3A0A834720AFD9079163B894D0"
             "Folder" = "8:_577968F61C914EAE85EE0957BCC9270C"
             "WorkingFolder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
-            "Icon" = "8:_B66F236F50EA41038CB3C8706FC14F7D"
+            "Icon" = "8:_2DA638FF4D2F45E3980D6025B7665983"
             "Feature" = "8:"
             }
         }
@@ -942,7 +950,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6D317B3A0A834720AFD9079163B894D0"
             {
-            "SourcePath" = "8:..\\SpellGallery\\obj\\Debug\\SpellGallery.exe"
+            "SourcePath" = "8:..\\SpellGallery\\obj\\Release\\SpellGallery.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"

@@ -12,10 +12,11 @@ You can download the latest installer from [the Releases page on GitHub](https:/
 
 ## Dependencies
 - [WPF-AutoComplete-TextBox](https://github.com/quicoli/WPF-AutoComplete-TextBox) - by Paulo Roberto Quicoli - [MIT License](https://github.com/quicoli/WPF-AutoComplete-TextBox?tab=MIT-1-ov-file)
-- [NewtonSoft.Json](https://github.com/JamesNK/Newtonsoft.Json) - by James Newton-King - [MIT License](https://github.com/JamesNK/Newtonsoft.Json?tab=MIT-1-ov-file)
+- [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json) - by James Newton-King - [MIT License](https://github.com/JamesNK/Newtonsoft.Json?tab=MIT-1-ov-file)
 - [log4net](https://github.com/apache/logging-log4net) - by Apache Software Foundation - [Apache License](https://github.com/apache/logging-log4net?tab=Apache-2.0-1-ov-file)
 
 ## Version History
+- v0.6.0.8 - Main program icon
 - v0.5.0.7 - Resizable main window, hint-to-click below card preview
 - v0.4.0.6 - Handles double-faced cards, Downloads section in README
 - v0.3.0.5 - Added installer MSI

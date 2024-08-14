@@ -47,6 +47,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 --------------------------------
+Wizard Hat Icon Attribution
+--------------------------------
+
+https://www.flaticon.com/free-icons/wizard
+Wizard icons created by Freepik - Flaticon
+
+Terms of Use: https://www.flaticon.com/legal
+
+--------------------------------
 WPF-AutoComplete-TextBox License
 --------------------------------
 
