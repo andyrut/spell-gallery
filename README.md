@@ -16,6 +16,7 @@ You can download the latest installer from [the Releases page on GitHub](https:/
 - [log4net](https://github.com/apache/logging-log4net) - by Apache Software Foundation - [Apache License](https://github.com/apache/logging-log4net?tab=Apache-2.0-1-ov-file)
 
 ## Version History
+- v0.6.0.9 - Fixed the "Lightning Bolt" issue with white spacers for thumbnails
 - v0.6.0.8 - Main program icon
 - v0.5.0.7 - Resizable main window, hint-to-click below card preview
 - v0.4.0.6 - Handles double-faced cards, Downloads section in README

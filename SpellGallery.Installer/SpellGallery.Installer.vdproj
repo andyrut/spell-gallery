@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_20C225A3E19E059FF0F0358970631AD8"
+        "MsmKey" = "8:_257B2001118A28987B1E17A149CC3188"
         "OwnerKey" = "8:_6D317B3A0A834720AFD9079163B894D0"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -82,7 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20C225A3E19E059FF0F0358970631AD8"
+        "OwnerKey" = "8:_257B2001118A28987B1E17A149CC3188"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -200,14 +200,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_20C225A3E19E059FF0F0358970631AD8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_257B2001118A28987B1E17A149CC3188"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:AutoCompleteTextBox, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_20C225A3E19E059FF0F0358970631AD8"
+                    "_257B2001118A28987B1E17A149CC3188"
                     {
                     "Name" = "8:AutoCompleteTextBox.dll"
                     "Attributes" = "3:512"
@@ -400,15 +400,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Spell Gallery"
-        "ProductCode" = "8:{F93041C2-7B22-4FFD-936D-16C948754AF3}"
-        "PackageCode" = "8:{38F2F069-389B-4FA0-9337-B6B6965B0D5C}"
+        "ProductCode" = "8:{DA8108A4-484C-4D81-BF02-A3B062C26CC2}"
+        "PackageCode" = "8:{0DE1F221-1AD9-46E9-B1DE-2FDBF2D65FE2}"
         "UpgradeCode" = "8:{244AE45B-B465-4CFA-9B93-19C55B779A8F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.6.0"
+        "ProductVersion" = "8:0.6.1"
         "Manufacturer" = "8:Andy Rutledge"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/andyrut/spell-gallery/issues"

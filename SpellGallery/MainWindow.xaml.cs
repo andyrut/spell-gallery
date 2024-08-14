@@ -1,10 +1,10 @@
 ﻿#region Using Directives
-
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,7 +52,7 @@ namespace SpellGallery
             try
             {
                 XmlConfigurator.Configure();
-                log.Info("Spell Gallery program started.");
+                log.Info($"Spell Gallery v{Assembly.GetExecutingAssembly().GetName().Version} program started.");
                 InitializeComponent();
             }
             catch (Exception ex)
@@ -81,6 +81,19 @@ namespace SpellGallery
             }
         }
 
+        // Window is closing
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                log.Info("Spell Gallery program completed.");
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+
         // User taps a key (for catching <ENTER>)
         private async void CardNameTextBox_KeyUp(object sender, KeyEventArgs e)
         {
@@ -89,7 +102,10 @@ namespace SpellGallery
                 if (e.Key != Key.Enter)
                     return;
 
-                await GoAsync();
+                if (CardNameTextBox.SelectedItem != null)
+                    return;
+
+                await SearchAsync();
             }
             catch (Exception ex)
             {
@@ -102,7 +118,7 @@ namespace SpellGallery
         {
             try
             {
-                await GoAsync();
+                await SearchAsync();
             }
             catch (Exception ex)
             {
@@ -115,7 +131,7 @@ namespace SpellGallery
         {
             try
             {
-                await GoAsync();
+                await SearchAsync();
             }
             catch (Exception ex)
             {
@@ -151,6 +167,7 @@ namespace SpellGallery
 
                 var card = (Card)image.Tag;
                 await card.StoreAsync(httpClient, settings);
+                log.Debug($"Stored print for: {card.Name}");
 
                 Animate(image);
             }
@@ -227,24 +244,11 @@ namespace SpellGallery
                 HandleException(ex);
             }
         }
-
-        // Form is unloaded
-        private void Window_Unloaded(object sender, EventArgs e)
-        {
-            try
-            {
-                log.Info("Spell Gallery program completed.");
-            }
-            catch (Exception ex)
-            {
-                HandleException(ex);
-            }
-        }
         #endregion
 
         #region Private Methods
         // Perform a card search and display the results as thumbnails
-        private async Task GoAsync()
+        private async Task SearchAsync()
         {
             string cardName = CardNameTextBox.Text;
             if (string.IsNullOrEmpty(cardName))
@@ -254,6 +258,8 @@ namespace SpellGallery
 
             var cards = await ScryfallMethods.GetCardsByNameAsync(cardName);
             cards = cards.Select(x => (Card)x.Clone()).ToList();
+
+            log.Debug($"Scryfall search for [{cardName}] returned {cards.Count} result(s)");
 
             ThumbnailWrapPanel.Children.Clear();
             
@@ -267,7 +273,7 @@ namespace SpellGallery
             }
         }
 
-        // Given a card and location, creates a thumbnail image in the grid
+        // Given a card, creates a thumbnail image in the grid
         private Image CreateThumbnailImage(Card card)
         {
             if (card.ImageUris?.Small == null)
@@ -276,6 +282,8 @@ namespace SpellGallery
             var image = new Image();
             var bitmap = new BitmapImage();
             bitmap.BeginInit();
+            bitmap.DownloadFailed += (sender, args) => log.Error($"Error downloading image: {card.ImageUris.Small}", args.ErrorException);
+            bitmap.DecodeFailed += (sender, args) => log.Error($"Error decoding image: {card.ImageUris.Small}", args.ErrorException);
             bitmap.UriSource = new Uri(card.ImageUris.Small, UriKind.Absolute);
             bitmap.EndInit();
             image.Source = bitmap;
@@ -296,7 +304,7 @@ namespace SpellGallery
         // Animate the image to indicate it's been selected/clicked
         private void Animate(Image image)
         {
-            image.RenderTransform = new ScaleTransform()
+            image.RenderTransform = new ScaleTransform
             {
                 ScaleX = 1.0,
                 ScaleY = 1.0,
