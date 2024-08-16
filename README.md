@@ -5,7 +5,7 @@ A Windows app that assists in the selection of card art/print for specific cards
 
 ## Download
 
-You can download the latest installer from [the Releases page on GitHub](https://github.com/andyrut/spell-gallery/releases).
+You can download the latest installer from the "assets" on [the Releases page on GitHub](https://github.com/andyrut/spell-gallery/releases).
 
 ## Screenshot
 ![Spell Gallery screenshot](https://raw.githubusercontent.com/andyrut/spell-gallery/master/screenshot.png "Spell Gallery screenshot")
@@ -16,6 +16,7 @@ You can download the latest installer from [the Releases page on GitHub](https:/
 - [log4net](https://github.com/apache/logging-log4net) - by Apache Software Foundation - [Apache License](https://github.com/apache/logging-log4net?tab=Apache-2.0-1-ov-file)
 
 ## Version History
+- v1.0.0.0 - Initial release
 - v0.6.0.9 - Fixed the "Lightning Bolt" issue with white spacers for thumbnails
 - v0.6.0.8 - Main program icon
 - v0.5.0.7 - Resizable main window, hint-to-click below card preview

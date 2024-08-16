@@ -22,7 +22,6 @@
             <Image x:Name="PreviewImage" Height="400" Width="285" />
             <Label x:Name="ClickLabel" Content="Click a card on the left to store it." HorizontalAlignment="Center" Margin="10" Visibility="Hidden" />
         </StackPanel>
-        <Label x:Name="BetaLabel" Content="This is BETA software." HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Foreground="Red" FontWeight="Bold"/>
         <Button x:Name="SettingsButton" Content="Settings..." FontSize="16" HorizontalAlignment="Right" Margin="0,13,10,0" VerticalAlignment="Top" Width="86" Click="SettingsButton_Click"/>
     </Grid>
 </Window>
