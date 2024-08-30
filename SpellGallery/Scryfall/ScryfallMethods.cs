@@ -36,7 +36,7 @@ namespace SpellGallery.Scryfall
         /// <returns>List of cards</returns>
         public static async Task<List<Card>> GetCardsByNameAsync(string cardName)
         {
-            string endpoint = $"/cards/search?unique=prints&q={Uri.EscapeUriString(cardName)}";
+            string endpoint = $"/cards/search?unique=prints&q=!{Uri.EscapeUriString($"\"{cardName}\"")}";
             var searchResponse = await GetAsync<SearchResponse>(endpoint);
             return searchResponse.Data;
         }
@@ -73,7 +73,7 @@ namespace SpellGallery.Scryfall
                     errorMessage = responseString;
                 }
 
-                throw new WebException($"{(int)response.StatusCode} Error accessing Scrfall URL [{url}]:{Environment.NewLine}{Environment.NewLine}{errorMessage}");
+                throw new WebException($"{(int)response.StatusCode} Error accessing Scryfall URL [{url}]:{Environment.NewLine}{Environment.NewLine}{errorMessage}");
             }
 
             var apiResponse = JsonConvert.DeserializeObject<T>(responseString);

@@ -56,6 +56,12 @@ Wizard icons created by Freepik - Flaticon
 Terms of Use: https://www.flaticon.com/legal
 
 --------------------------------
+Scryfall
+--------------------------------
+
+Card search and images provided by the excellent Scryfall API (https://scryfall.com).
+
+--------------------------------
 WPF-AutoComplete-TextBox License
 --------------------------------
 

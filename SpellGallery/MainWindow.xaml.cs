@@ -165,11 +165,11 @@ namespace SpellGallery
                 if (!ReferenceEquals(image, mouseDownThumbnail))
                     return;
 
+                Animate(image);
+
                 var card = (Card)image.Tag;
                 await card.StoreAsync(httpClient, settings);
                 log.Debug($"Stored print for: {card.Name}");
-
-                Animate(image);
             }
             catch (Exception ex)
             {
@@ -205,6 +205,7 @@ namespace SpellGallery
                 }
 
                 PreviewImage.Source = bitmap;
+                PreviewBorder.BorderThickness = new Thickness(0);
                 ClickLabel.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
@@ -219,6 +220,7 @@ namespace SpellGallery
             try
             {
                 PreviewImage.Source = null;
+                PreviewBorder.BorderThickness = new Thickness(1);
                 ClickLabel.Visibility = Visibility.Hidden;
             }
             catch (Exception ex)
@@ -243,6 +245,17 @@ namespace SpellGallery
             {
                 HandleException(ex);
             }
+        }
+
+        // The Window has been resized
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            SaveSizeLocation();
+        }
+
+        private void Window_LocationChanged(object sender, EventArgs e)
+        {
+            SaveSizeLocation();
         }
         #endregion
 
@@ -348,6 +361,19 @@ namespace SpellGallery
             storyboard.Children.Add(opacityAnimation);
 
             storyboard.Begin();
+        }
+
+        // Stores the current window size and location in Properties
+        private void SaveSizeLocation()
+        {
+            try
+            {
+                Properties.Settings.Default.Save();
+            }
+            catch
+            {
+                // Ignored
+            }
         }
 
         // Show the error to the user

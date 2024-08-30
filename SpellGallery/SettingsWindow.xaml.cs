@@ -1,12 +1,12 @@
 ﻿#region Using Directives
-using System;
-using System.IO;
 using SpellGallery.Configuration;
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Forms;
-using Microsoft.Win32;
 using MessageBox = System.Windows.MessageBox;
-
 #endregion
 
 namespace SpellGallery
@@ -99,6 +99,28 @@ namespace SpellGallery
                 HandleException(ex);
             }
         }
+
+        // The About Spell Gallery link was clicked
+        private void Hyperlink_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string exeLocation = Assembly.GetExecutingAssembly().Location;
+                if (string.IsNullOrEmpty(exeLocation))
+                    throw new InvalidOperationException("Could not determine the Spell Gallery EXE's location");
+
+                string exeDir = Path.GetDirectoryName(exeLocation);
+                if (string.IsNullOrEmpty(exeDir))
+                    throw new DirectoryNotFoundException($"Could not find the directory for path [{exeLocation}]");
+
+                string readmePath = Path.Combine(exeDir, "README.txt");
+                Process.Start(readmePath);
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
         #endregion
 
         #region Private Methods
@@ -108,5 +130,7 @@ namespace SpellGallery
             MessageBox.Show($"Error: {ex.Message}", Title);
         }
         #endregion
+
+
     }
 }

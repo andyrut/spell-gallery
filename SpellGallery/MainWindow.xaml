@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:autoComplete="clr-namespace:SpellGallery.AutoComplete"
         xmlns:editors="http://wpfcontrols.com/"
+        xmlns:p="clr-namespace:SpellGallery.Properties"
         mc:Ignorable="d"
-        Title="Spell Gallery" Height="710" MinHeight="710" MinWidth="790" Width="790" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="Spell Gallery"
+        MinHeight="710"
+        MinWidth="790"
+        Height="{Binding Source={x:Static p:Settings.Default}, Path=Height, Mode=TwoWay}"
+        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=TwoWay}"
+        Left="{Binding Source={x:Static p:Settings.Default}, Path=Left, Mode=TwoWay}"
+        Top="{Binding Source={x:Static p:Settings.Default}, Path=Top, Mode=TwoWay}"
+        Loaded="Window_Loaded" Closing="Window_Closing" SizeChanged="Window_SizeChanged" LocationChanged="Window_LocationChanged">
     <Window.Resources>
         <autoComplete:CardsProvider x:Key="CardsProvider"/>
     </Window.Resources>
@@ -15,11 +23,41 @@
         <editors:AutoCompleteTextBox x:Name="CardNameTextBox" Watermark="Please enter a card name." HorizontalAlignment="Left" Margin="115,14,0,0" VerticalAlignment="Top" Width="357" KeyUp="CardNameTextBox_KeyUp" FontSize="16" Provider="{StaticResource ResourceKey=CardsProvider}" />
         <Button x:Name="GoButton" Content="Go" HorizontalAlignment="Left" Margin="477,13,0,0" VerticalAlignment="Top" Click="GoButton_Click" FontSize="16" Width="34"/>
         <ScrollViewer Margin="10,50,305,10" VerticalScrollBarVisibility="Auto" >
-            <WrapPanel x:Name="ThumbnailWrapPanel" Orientation="Horizontal" />
+            <WrapPanel x:Name="ThumbnailWrapPanel" Orientation="Horizontal">
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+                <Border BorderThickness="1" BorderBrush="LightGray" Width="143" Height="200" CornerRadius="10">
+                    <Rectangle />
+                </Border>
+            </WrapPanel>
         </ScrollViewer>
-        <Label x:Name="SavedLabel" Content="Selected print saved!" HorizontalAlignment="Left" Margin="431,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.348" Foreground="Green" FontWeight="Bold" Opacity="0"/>
+        <Label x:Name="SavedLabel" Content="Selected print saved!" HorizontalAlignment="Left" Margin="525,15,0,0" VerticalAlignment="Top" Foreground="Green" FontWeight="Bold" Opacity="0"/>
         <StackPanel Orientation="Vertical" Height="440" Width="285" Margin="0,51,12,0" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Image x:Name="PreviewImage" Height="400" Width="285" />
+            <Border x:Name="PreviewBorder" BorderBrush="LightGray" BorderThickness="1" CornerRadius="10">
+                <Image x:Name="PreviewImage" Height="400" Width="285" />
+            </Border>
             <Label x:Name="ClickLabel" Content="Click a card on the left to store it." HorizontalAlignment="Center" Margin="10" Visibility="Hidden" />
         </StackPanel>
         <Button x:Name="SettingsButton" Content="Settings..." FontSize="16" HorizontalAlignment="Right" Margin="0,13,10,0" VerticalAlignment="Top" Width="86" Click="SettingsButton_Click"/>

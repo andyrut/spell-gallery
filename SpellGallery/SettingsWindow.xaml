@@ -13,5 +13,10 @@
         <Button x:Name="SaveButton" Content="Save" FontSize="16" HorizontalAlignment="Left" Margin="702,73,0,0" VerticalAlignment="Top" Width="66" IsDefault="True" Click="SaveButton_Click"/>
         <Button x:Name="CancelButon" Content="Cancel" FontSize="16" HorizontalAlignment="Left" Margin="773,73,0,0" VerticalAlignment="Top" Width="66" IsCancel="True"/>
         <Button x:Name="DefaultButton" Content="Use Default Folder" FontSize="16" HorizontalAlignment="Left" Margin="177,42,0,0" VerticalAlignment="Top" Width="157" Click="DefaultButton_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="17,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+            <Hyperlink Click="Hyperlink_OnClick">
+                About Spell Gallery
+            </Hyperlink>
+        </TextBlock>
     </Grid>
 </Window>
