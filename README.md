@@ -24,6 +24,7 @@ Wizard icons created by Freepik - Flaticon
 Terms of Use: https://www.flaticon.com/legal
 
 ## Version History
+- v1.2.0.2 - Handles pagination for Scryfall card search - Shoutout to @zScribblez for the contribution!
 - v1.1.0.1 - Window size/position remembered, fixed saved label placement, placeholders for cards on load, exact matches required on search, "About" launches readme.txt, icon and scryfall attribution
 - v1.0.0.0 - Initial release
 - v0.6.0.9 - Fixed the "Lightning Bolt" issue with white spacers for thumbnails

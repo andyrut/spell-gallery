@@ -36,10 +36,10 @@ namespace SpellGallery.Scryfall
         /// <returns>List of cards</returns>
         public static async Task<List<Card>> GetCardsByNameAsync(string cardName)
         {
-            List<Card> cards = new List<Card>();
+            var cards = new List<Card>();
             string url = $"{ApiUrl}/cards/search?unique=prints&q=!{Uri.EscapeUriString($"\"{cardName}\"")}";
 
-            while (!String.IsNullOrEmpty(url))
+            while (!string.IsNullOrEmpty(url))
             {
                 var response = await GetAsync<SearchResponse>(url);
                 cards.AddRange(response.Data);
