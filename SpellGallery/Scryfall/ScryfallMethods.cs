@@ -36,9 +36,17 @@ namespace SpellGallery.Scryfall
         /// <returns>List of cards</returns>
         public static async Task<List<Card>> GetCardsByNameAsync(string cardName)
         {
-            string endpoint = $"/cards/search?unique=prints&q=!{Uri.EscapeUriString($"\"{cardName}\"")}";
-            var searchResponse = await GetAsync<SearchResponse>(endpoint);
-            return searchResponse.Data;
+            List<Card> cards = new List<Card>();
+            string url = $"{ApiUrl}/cards/search?unique=prints&q=!{Uri.EscapeUriString($"\"{cardName}\"")}";
+
+            while (!String.IsNullOrEmpty(url))
+            {
+                var response = await GetAsync<SearchResponse>(url);
+                cards.AddRange(response.Data);
+                url = response.NextPage;
+            }
+
+            return cards;
         }
 
         /// <summary>
@@ -48,15 +56,14 @@ namespace SpellGallery.Scryfall
         /// <returns>List of suggestions that meet the filter criteria</returns>
         public static async Task<List<string>> AutoCompleteAsync(string filter)
         {
-            string endpoint = $"/cards/autocomplete?q={Uri.EscapeUriString(filter)}";
-            var autoCompleteResponse = await GetAsync<AutoCompleteResponse>(endpoint);
+            string url = $"{ApiUrl}/cards/autocomplete?q={Uri.EscapeUriString(filter)}";
+            var autoCompleteResponse = await GetAsync<AutoCompleteResponse>(url);
             return autoCompleteResponse.Data;
         }
 
         // GET REST operation helper
-        private static async Task<T> GetAsync<T>(string endpoint)
+        private static async Task<T> GetAsync<T>(string url)
         {
-            string url = $"{ApiUrl}{endpoint}";
             var response = await HttpClient.GetAsync(url);
             string responseString = await response.Content.ReadAsStringAsync();
 
