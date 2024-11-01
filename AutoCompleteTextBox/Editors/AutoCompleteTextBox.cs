@@ -47,6 +47,7 @@ namespace AutoCompleteTextBox.Editors
         public static readonly DependencyProperty WatermarkProperty = DependencyProperty.Register("Watermark", typeof(string), typeof(AutoCompleteTextBox), new FrameworkPropertyMetadata(string.Empty));
 
         public static readonly DependencyProperty SuggestionBackgroundProperty = DependencyProperty.Register("SuggestionBackground", typeof(Brush), typeof(AutoCompleteTextBox), new FrameworkPropertyMetadata(Brushes.White));
+        public static readonly DependencyProperty SuggestionForegroundProperty = DependencyProperty.Register("SuggestionForeground", typeof(Brush), typeof(AutoCompleteTextBox), new FrameworkPropertyMetadata(Brushes.Black));
         private bool _isUpdatingText;
         private bool _selectionCancelled;
 
@@ -224,6 +225,12 @@ namespace AutoCompleteTextBox.Editors
             get => (Brush)GetValue(SuggestionBackgroundProperty);
 
             set => SetValue(SuggestionBackgroundProperty, value);
+        }
+
+        public Brush SuggestionForeground
+        {
+            get => (Brush) GetValue(SuggestionForegroundProperty);
+            set => SetValue(SuggestionForegroundProperty, value);
         }
 
         #endregion

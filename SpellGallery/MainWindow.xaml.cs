@@ -1,4 +1,9 @@
 ﻿#region Using Directives
+using log4net;
+using log4net.Config;
+using SpellGallery.Configuration;
+using SpellGallery.Scryfall;
+using SpellGallery.Scryfall.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,11 +17,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using log4net;
-using log4net.Config;
-using SpellGallery.Configuration;
-using SpellGallery.Scryfall;
-using SpellGallery.Scryfall.Models;
 using Exception = System.Exception;
 #endregion
 
@@ -40,7 +40,7 @@ namespace SpellGallery
         private Image mouseDownThumbnail;
 
         // The program's settings
-        private SpellGallerySettings settings;
+        private static SpellGallerySettings settings;
         #endregion
 
         #region Constructors
@@ -71,6 +71,8 @@ namespace SpellGallery
                 CardNameTextBox.Focus();
                 CardNameTextBox.ItemSelected += CardNameTextBoxOnItemSelected;
                 settings = SpellGallerySettings.Load();
+
+                Appearance = settings.Appearance;
 
                 if (!Directory.Exists(settings.CustomPicsFolder))
                     throw new DirectoryNotFoundException($"Cockatrice custom pics folder not found: {settings.CustomPicsFolder}{Environment.NewLine}{Environment.NewLine}Please use the Settings to configure your custom pics folder.");
@@ -239,6 +241,8 @@ namespace SpellGallery
                 {
                     settings = settingsWindow.Settings;
                     settings.Save();
+
+                    Appearance = settings.Appearance;
                 }
             }
             catch (Exception ex)
@@ -253,6 +257,7 @@ namespace SpellGallery
             SaveSizeLocation();
         }
 
+        // The Window's location has changed
         private void Window_LocationChanged(object sender, EventArgs e)
         {
             SaveSizeLocation();

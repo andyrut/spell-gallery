@@ -2,10 +2,15 @@
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using SpellGallery.Enums;
+
 #endregion
 
 namespace SpellGallery.Configuration
 {
+    /// <summary>
+    /// Settings for the application
+    /// </summary>
     public class SpellGallerySettings : ICloneable
     {
         // The path to the program's settings file
@@ -16,6 +21,11 @@ namespace SpellGallery.Configuration
         /// Path to the Cockatrice custom pics directory, e.g. C:\Users\Username\AppData\Local\Cockatrice\Cockatrice\pics\CUSTOM
         /// </summary>
         public string CustomPicsFolder { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Cockatrice", "Cockatrice", "pics", "CUSTOM");
+
+        /// <summary>
+        /// The appearance (light/dark mode, system mode) of the application
+        /// </summary>
+        public Appearance Appearance { get; set; } = Appearance.System;
         #endregion
 
         #region Public Methods

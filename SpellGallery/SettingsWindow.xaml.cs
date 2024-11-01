@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Forms;
+using Appearance = SpellGallery.Enums.Appearance;
 using MessageBox = System.Windows.MessageBox;
 #endregion
 
@@ -33,6 +34,7 @@ namespace SpellGallery
             InitializeComponent();
 
             Settings = (SpellGallerySettings)settings.Clone();
+            Appearance = Settings.Appearance;
         }
         #endregion
 
@@ -47,6 +49,19 @@ namespace SpellGallery
 
                 CustomPicsFolderTextBox.Text = Settings.CustomPicsFolder;
                 CustomPicsFolderTextBox.Focus();
+
+                switch (Settings.Appearance)
+                {
+                    case Appearance.Dark:
+                        DarkRadioButton.IsChecked = true;
+                        break;
+                    case Appearance.System:
+                        SystemRadioButton.IsChecked = true;
+                        break;
+                    default:
+                        LightRadioButton.IsChecked = true;
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -78,6 +93,9 @@ namespace SpellGallery
                     throw new DirectoryNotFoundException($"Folder does not exist: {CustomPicsFolderTextBox.Text}");
 
                 Settings.CustomPicsFolder = CustomPicsFolderTextBox.Text;
+
+                GetAppearance();
+
                 DialogResult = true;
                 Close();
             }
@@ -85,6 +103,17 @@ namespace SpellGallery
             {
                 HandleException(ex);
             }
+        }
+
+        // Sets the current settings' appearance to the UI's selection
+        private void GetAppearance()
+        {
+            if (DarkRadioButton.IsChecked.GetValueOrDefault())
+                Settings.Appearance = Appearance.Dark;
+            else if (SystemRadioButton.IsChecked.GetValueOrDefault())
+                Settings.Appearance = Appearance.System;
+            else
+                Settings.Appearance = Appearance.Light;
         }
 
         // User clicks the Use Default button
@@ -121,6 +150,20 @@ namespace SpellGallery
                 HandleException(ex);
             }
         }
+
+        // The user checked one of the appearance radio buttons
+        private void AppearanceRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                GetAppearance();
+                Appearance = Settings.Appearance;
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
         #endregion
 
         #region Private Methods
@@ -130,7 +173,5 @@ namespace SpellGallery
             MessageBox.Show($"Error: {ex.Message}", Title);
         }
         #endregion
-
-
     }
 }
