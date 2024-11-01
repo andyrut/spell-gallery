@@ -1,12 +1,15 @@
 ﻿#region Using Directives
+using log4net;
+using log4net.Config;
+using SpellGallery.Configuration;
+using SpellGallery.Scryfall;
+using SpellGallery.Scryfall.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,13 +17,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using log4net;
-using log4net.Config;
-using SpellGallery.Configuration;
-using SpellGallery.Enums;
-using SpellGallery.Scryfall;
-using SpellGallery.Scryfall.Models;
-using SpellGallery.Windows;
 using Exception = System.Exception;
 #endregion
 
@@ -29,7 +25,7 @@ namespace SpellGallery
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : LightDarkWindow
+    public partial class MainWindow
     {
         #region Private Data Members
         private readonly ILog log = LogManager.GetLogger(typeof(MainWindow));
@@ -76,7 +72,7 @@ namespace SpellGallery
                 CardNameTextBox.ItemSelected += CardNameTextBoxOnItemSelected;
                 settings = SpellGallerySettings.Load();
 
-                BrightnessMode = settings.BrightnessMode;
+                Appearance = settings.Appearance;
 
                 if (!Directory.Exists(settings.CustomPicsFolder))
                     throw new DirectoryNotFoundException($"Cockatrice custom pics folder not found: {settings.CustomPicsFolder}{Environment.NewLine}{Environment.NewLine}Please use the Settings to configure your custom pics folder.");
@@ -246,7 +242,7 @@ namespace SpellGallery
                     settings = settingsWindow.Settings;
                     settings.Save();
 
-                    BrightnessMode = settings.BrightnessMode;
+                    Appearance = settings.Appearance;
                 }
             }
             catch (Exception ex)
@@ -261,6 +257,7 @@ namespace SpellGallery
             SaveSizeLocation();
         }
 
+        // The Window's location has changed
         private void Window_LocationChanged(object sender, EventArgs e)
         {
             SaveSizeLocation();

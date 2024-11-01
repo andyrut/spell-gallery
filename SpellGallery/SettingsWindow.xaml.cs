@@ -6,8 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Media;
-using SpellGallery.Enums;
+using Appearance = SpellGallery.Enums.Appearance;
 using MessageBox = System.Windows.MessageBox;
 #endregion
 
@@ -35,7 +34,7 @@ namespace SpellGallery
             InitializeComponent();
 
             Settings = (SpellGallerySettings)settings.Clone();
-            BrightnessMode = Settings.BrightnessMode;
+            Appearance = Settings.Appearance;
         }
         #endregion
 
@@ -51,12 +50,12 @@ namespace SpellGallery
                 CustomPicsFolderTextBox.Text = Settings.CustomPicsFolder;
                 CustomPicsFolderTextBox.Focus();
 
-                switch (Settings.BrightnessMode)
+                switch (Settings.Appearance)
                 {
-                    case BrightnessMode.Dark:
+                    case Appearance.Dark:
                         DarkRadioButton.IsChecked = true;
                         break;
-                    case BrightnessMode.System:
+                    case Appearance.System:
                         SystemRadioButton.IsChecked = true;
                         break;
                     default:
@@ -95,7 +94,7 @@ namespace SpellGallery
 
                 Settings.CustomPicsFolder = CustomPicsFolderTextBox.Text;
 
-                GetBrightnessMode();
+                GetAppearance();
 
                 DialogResult = true;
                 Close();
@@ -106,14 +105,15 @@ namespace SpellGallery
             }
         }
 
-        private void GetBrightnessMode()
+        // Sets the current settings' appearance to the UI's selection
+        private void GetAppearance()
         {
             if (DarkRadioButton.IsChecked.GetValueOrDefault())
-                Settings.BrightnessMode = BrightnessMode.Dark;
+                Settings.Appearance = Appearance.Dark;
             else if (SystemRadioButton.IsChecked.GetValueOrDefault())
-                Settings.BrightnessMode = BrightnessMode.System;
+                Settings.Appearance = Appearance.System;
             else
-                Settings.BrightnessMode = BrightnessMode.Light;
+                Settings.Appearance = Appearance.Light;
         }
 
         // User clicks the Use Default button
@@ -150,6 +150,20 @@ namespace SpellGallery
                 HandleException(ex);
             }
         }
+
+        // The user checked one of the appearance radio buttons
+        private void AppearanceRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                GetAppearance();
+                Appearance = Settings.Appearance;
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
         #endregion
 
         #region Private Methods
@@ -158,20 +172,6 @@ namespace SpellGallery
         {
             MessageBox.Show($"Error: {ex.Message}", Title);
         }
-
         #endregion
-
-        private void BrightnesstRadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                GetBrightnessMode();
-                BrightnessMode = Settings.BrightnessMode;
-            }
-            catch (Exception ex)
-            {
-                HandleException(ex);
-            }
-        }
     }
 }

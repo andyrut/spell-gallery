@@ -21,45 +21,55 @@
         Foreground="{Binding Path=MyForeground, ElementName=MyMainWindow}">
     <Window.Resources>
         <autoComplete:CardsProvider x:Key="CardsProvider"/>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Foreground" Value="{Binding Path=MyForeground, ElementName=MyMainWindow}" />
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Foreground" Value="{Binding Path=MyForeground, ElementName=MyMainWindow}" />
+            <Setter Property="Background" Value="{Binding Path=MyBackground, ElementName=MyMainWindow}" />
+        </Style>
+        <Style TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="{Binding Path=MyBorder, ElementName=MyMainWindow}"/>
+        </Style>
     </Window.Resources>
     <Grid>
-        <Label Content="Card Search:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="SemiBold" Foreground="{Binding Path=MyForeground, ElementName=MyMainWindow}"/>
+        <Label Content="Card Search:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="SemiBold"/>
         <editors:AutoCompleteTextBox x:Name="CardNameTextBox" Watermark="Please enter a card name." HorizontalAlignment="Left" Margin="115,14,0,0" VerticalAlignment="Top" Width="357" KeyUp="CardNameTextBox_KeyUp" FontSize="16" Provider="{StaticResource ResourceKey=CardsProvider}" Foreground="{Binding Path=MyForeground, ElementName=MyMainWindow}" SuggestionForeground="{Binding Path=MyForeground, ElementName=MyMainWindow}" Background="{Binding Path=MyBackground, ElementName=MyMainWindow}" SuggestionBackground="{Binding Path=MyBackground, ElementName=MyMainWindow}" />
         <Button x:Name="GoButton" Content="Go" HorizontalAlignment="Left" Margin="477,13,0,0" VerticalAlignment="Top" Click="GoButton_Click" FontSize="16" Width="34"/>
         <ScrollViewer Margin="10,50,305,10" VerticalScrollBarVisibility="Auto" >
             <WrapPanel x:Name="ThumbnailWrapPanel" Orientation="Horizontal">
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
-                <Border BorderThickness="1" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" Width="143" Height="200" CornerRadius="10">
+                <Border BorderThickness="1" Width="143" Height="200" CornerRadius="10">
                     <Rectangle />
                 </Border>
             </WrapPanel>
         </ScrollViewer>
         <Label x:Name="SavedLabel" Content="Selected print saved!" HorizontalAlignment="Left" Margin="525,15,0,0" VerticalAlignment="Top" Foreground="Green" FontWeight="Bold" Opacity="0"/>
         <StackPanel Orientation="Vertical" Height="440" Width="285" Margin="0,51,12,0" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Border x:Name="PreviewBorder" BorderBrush="{Binding Path=MyBorder, ElementName=MyMainWindow}" BorderThickness="1" CornerRadius="10">
+            <Border x:Name="PreviewBorder" BorderThickness="1" CornerRadius="10">
                 <Image x:Name="PreviewImage" Height="400" Width="285" />
             </Border>
             <Label x:Name="ClickLabel" Content="Click a card on the left to store it." HorizontalAlignment="Center" Margin="10" Visibility="Hidden" />

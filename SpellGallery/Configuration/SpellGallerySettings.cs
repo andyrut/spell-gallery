@@ -8,6 +8,9 @@ using SpellGallery.Enums;
 
 namespace SpellGallery.Configuration
 {
+    /// <summary>
+    /// Settings for the application
+    /// </summary>
     public class SpellGallerySettings : ICloneable
     {
         // The path to the program's settings file
@@ -19,7 +22,10 @@ namespace SpellGallery.Configuration
         /// </summary>
         public string CustomPicsFolder { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Cockatrice", "Cockatrice", "pics", "CUSTOM");
 
-        public BrightnessMode BrightnessMode { get; set; } = BrightnessMode.Light;
+        /// <summary>
+        /// The appearance (light/dark mode, system mode) of the application
+        /// </summary>
+        public Appearance Appearance { get; set; } = Appearance.System;
         #endregion
 
         #region Public Methods

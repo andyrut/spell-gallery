@@ -29,6 +29,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -87,7 +89,7 @@
     </ApplicationDefinition>
     <Compile Include="AutoComplete\CardsProvider.cs" />
     <Compile Include="Configuration\SpellGallerySettings.cs" />
-    <Compile Include="Enums\BrightnessMode.cs" />
+    <Compile Include="Enums\Appearance.cs" />
     <Compile Include="Scryfall\Models\AutoCompleteResponse.cs" />
     <Compile Include="Scryfall\Models\Card.cs" />
     <Compile Include="Scryfall\Models\CardFace.cs" />

@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         Title="Spell Gallery Settings" Height="255" Width="875" Loaded="Window_Loaded" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Background="{Binding Path=MyBackground, ElementName=MySettingsWindow}"
-        Foreground="{Binding Path=MyForeground, ElementName=MySettingsWindow}">
+        Foreground="{Binding Path=MyForeground, ElementName=MySettingsWindow}"
+        MinimizeToRefresh="False">
     <Window.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="Foreground" Value="{Binding Path=MyForeground, ElementName=MySettingsWindow}" />
@@ -34,9 +35,9 @@
                 About Spell Gallery
             </Hyperlink>
         </TextBlock>
-        <Label Content="Brightness Mode:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="167" FontSize="16" FontWeight="SemiBold"/>
-        <RadioButton x:Name="LightRadioButton" Content="Light" HorizontalAlignment="Left" Margin="182,91,0,0" VerticalAlignment="Top" FontSize="16" Checked="BrightnesstRadioButton_Checked"/>
-        <RadioButton x:Name="DarkRadioButton" Content="Dark" HorizontalAlignment="Left" Margin="182,116,0,0" VerticalAlignment="Top" FontSize="16" Checked="BrightnesstRadioButton_Checked"/>
-        <RadioButton x:Name="SystemRadioButton" Content="Use System Setting" HorizontalAlignment="Left" Margin="182,141,0,0" VerticalAlignment="Top" FontSize="16" Checked="BrightnesstRadioButton_Checked"/>
+        <Label Content="Appearance:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="167" FontSize="16" FontWeight="SemiBold"/>
+        <RadioButton x:Name="LightRadioButton" Content="Light Mode" HorizontalAlignment="Left" Margin="182,91,0,0" VerticalAlignment="Top" FontSize="16" Checked="AppearanceRadioButton_Checked"/>
+        <RadioButton x:Name="DarkRadioButton" Content="Dark Mode" HorizontalAlignment="Left" Margin="182,116,0,0" VerticalAlignment="Top" FontSize="16" Checked="AppearanceRadioButton_Checked"/>
+        <RadioButton x:Name="SystemRadioButton" Content="Use System Setting" HorizontalAlignment="Left" Margin="182,141,0,0" VerticalAlignment="Top" FontSize="16" Checked="AppearanceRadioButton_Checked"/>
     </Grid>
 </base:LightDarkWindow>
