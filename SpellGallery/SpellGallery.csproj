@@ -87,6 +87,7 @@
     </ApplicationDefinition>
     <Compile Include="AutoComplete\CardsProvider.cs" />
     <Compile Include="Configuration\SpellGallerySettings.cs" />
+    <Compile Include="Enums\BrightnessMode.cs" />
     <Compile Include="Scryfall\Models\AutoCompleteResponse.cs" />
     <Compile Include="Scryfall\Models\Card.cs" />
     <Compile Include="Scryfall\Models\CardFace.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\LightDarkWindow.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -167,5 +169,6 @@
   <ItemGroup>
     <Resource Include="SpellGallery.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

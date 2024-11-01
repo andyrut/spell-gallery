@@ -1,10 +1,12 @@
 ﻿#region Using Directives
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,8 +17,10 @@ using System.Windows.Media.Imaging;
 using log4net;
 using log4net.Config;
 using SpellGallery.Configuration;
+using SpellGallery.Enums;
 using SpellGallery.Scryfall;
 using SpellGallery.Scryfall.Models;
+using SpellGallery.Windows;
 using Exception = System.Exception;
 #endregion
 
@@ -25,7 +29,7 @@ namespace SpellGallery
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class MainWindow : LightDarkWindow
     {
         #region Private Data Members
         private readonly ILog log = LogManager.GetLogger(typeof(MainWindow));
@@ -40,7 +44,7 @@ namespace SpellGallery
         private Image mouseDownThumbnail;
 
         // The program's settings
-        private SpellGallerySettings settings;
+        private static SpellGallerySettings settings;
         #endregion
 
         #region Constructors
@@ -71,6 +75,8 @@ namespace SpellGallery
                 CardNameTextBox.Focus();
                 CardNameTextBox.ItemSelected += CardNameTextBoxOnItemSelected;
                 settings = SpellGallerySettings.Load();
+
+                BrightnessMode = settings.BrightnessMode;
 
                 if (!Directory.Exists(settings.CustomPicsFolder))
                     throw new DirectoryNotFoundException($"Cockatrice custom pics folder not found: {settings.CustomPicsFolder}{Environment.NewLine}{Environment.NewLine}Please use the Settings to configure your custom pics folder.");
@@ -239,6 +245,8 @@ namespace SpellGallery
                 {
                     settings = settingsWindow.Settings;
                     settings.Save();
+
+                    BrightnessMode = settings.BrightnessMode;
                 }
             }
             catch (Exception ex)

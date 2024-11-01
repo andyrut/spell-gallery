@@ -6,6 +6,8 @@ using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media;
+using SpellGallery.Enums;
 using MessageBox = System.Windows.MessageBox;
 #endregion
 
@@ -33,6 +35,7 @@ namespace SpellGallery
             InitializeComponent();
 
             Settings = (SpellGallerySettings)settings.Clone();
+            BrightnessMode = Settings.BrightnessMode;
         }
         #endregion
 
@@ -47,6 +50,19 @@ namespace SpellGallery
 
                 CustomPicsFolderTextBox.Text = Settings.CustomPicsFolder;
                 CustomPicsFolderTextBox.Focus();
+
+                switch (Settings.BrightnessMode)
+                {
+                    case BrightnessMode.Dark:
+                        DarkRadioButton.IsChecked = true;
+                        break;
+                    case BrightnessMode.System:
+                        SystemRadioButton.IsChecked = true;
+                        break;
+                    default:
+                        LightRadioButton.IsChecked = true;
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -78,6 +94,9 @@ namespace SpellGallery
                     throw new DirectoryNotFoundException($"Folder does not exist: {CustomPicsFolderTextBox.Text}");
 
                 Settings.CustomPicsFolder = CustomPicsFolderTextBox.Text;
+
+                GetBrightnessMode();
+
                 DialogResult = true;
                 Close();
             }
@@ -85,6 +104,16 @@ namespace SpellGallery
             {
                 HandleException(ex);
             }
+        }
+
+        private void GetBrightnessMode()
+        {
+            if (DarkRadioButton.IsChecked.GetValueOrDefault())
+                Settings.BrightnessMode = BrightnessMode.Dark;
+            else if (SystemRadioButton.IsChecked.GetValueOrDefault())
+                Settings.BrightnessMode = BrightnessMode.System;
+            else
+                Settings.BrightnessMode = BrightnessMode.Light;
         }
 
         // User clicks the Use Default button
@@ -129,8 +158,20 @@ namespace SpellGallery
         {
             MessageBox.Show($"Error: {ex.Message}", Title);
         }
+
         #endregion
 
-
+        private void BrightnesstRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                GetBrightnessMode();
+                BrightnessMode = Settings.BrightnessMode;
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
     }
 }

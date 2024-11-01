@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using SpellGallery.Enums;
+
 #endregion
 
 namespace SpellGallery.Configuration
@@ -16,6 +18,8 @@ namespace SpellGallery.Configuration
         /// Path to the Cockatrice custom pics directory, e.g. C:\Users\Username\AppData\Local\Cockatrice\Cockatrice\pics\CUSTOM
         /// </summary>
         public string CustomPicsFolder { get; set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Cockatrice", "Cockatrice", "pics", "CUSTOM");
+
+        public BrightnessMode BrightnessMode { get; set; } = BrightnessMode.Light;
         #endregion
 
         #region Public Methods

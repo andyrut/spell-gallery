@@ -132,6 +132,7 @@
                                             MaxWidth="{Binding Path=MaxPopupWidth, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"
                                             MaxHeight="{Binding Path=MaxPopupHeight, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"
                                             Background="{Binding Path=SuggestionBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=editors:AutoCompleteTextBox}, Mode=OneWay}"
+                                            Foreground="{Binding Path=SuggestionForeground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=editors:AutoCompleteTextBox}, Mode=OneWay}"
                                             BorderThickness="0"
                                             Focusable="False"
                                             ItemContainerStyle="{StaticResource ResourceKey=TextBoxSuggestionItemStyle}"
