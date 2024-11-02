@@ -400,15 +400,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Spell Gallery"
-        "ProductCode" = "8:{AAC3E542-6926-4B2D-B4C8-01A6A058B3C3}"
-        "PackageCode" = "8:{C92DB24C-8C2C-44EB-9033-69F5A1D3FAC0}"
+        "ProductCode" = "8:{EAF967CD-ACF4-4252-8674-C4A491F818D1}"
+        "PackageCode" = "8:{E9F62756-4392-4482-B22C-3A1F35C937B9}"
         "UpgradeCode" = "8:{244AE45B-B465-4CFA-9B93-19C55B779A8F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.3.1"
         "Manufacturer" = "8:Andy Rutledge"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/andyrut/spell-gallery/issues"
@@ -950,7 +950,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6D317B3A0A834720AFD9079163B894D0"
             {
-            "SourcePath" = "8:..\\SpellGallery\\obj\\Debug\\SpellGallery.exe"
+            "SourcePath" = "8:..\\SpellGallery\\obj\\Release\\SpellGallery.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
