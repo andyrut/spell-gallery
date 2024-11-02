@@ -51,9 +51,10 @@ namespace SpellGallery
         {
             try
             {
+                InitializeComponent();
+
                 XmlConfigurator.Configure();
                 log.Info($"Spell Gallery v{Assembly.GetExecutingAssembly().GetName().Version} program started.");
-                InitializeComponent();
             }
             catch (Exception ex)
             {

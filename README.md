@@ -9,6 +9,7 @@ You can download the latest installer from the "assets" on [the Releases page on
 
 ## Screenshot
 ![Spell Gallery screenshot](https://raw.githubusercontent.com/andyrut/spell-gallery/master/screenshot.png "Spell Gallery screenshot")
+![Spell Gallery screenshot (dark mode)](https://raw.githubusercontent.com/andyrut/spell-gallery/master/screenshot-dark.png "Spell Gallery screenshot (dark mode)")
 
 ## Dependencies
 - [WPF-AutoComplete-TextBox](https://github.com/quicoli/WPF-AutoComplete-TextBox) - by Paulo Roberto Quicoli - [MIT License](https://github.com/quicoli/WPF-AutoComplete-TextBox?tab=MIT-1-ov-file)
