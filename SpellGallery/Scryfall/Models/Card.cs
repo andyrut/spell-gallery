@@ -57,8 +57,12 @@ namespace SpellGallery.Scryfall.Models
         /// <returns>A task</returns>
         public async Task StoreAsync(HttpClient httpClient, SpellGallerySettings settings)
         {
+            string frontName = Name.Contains("//") && CardFaces.Count > 1
+                                ? CardFaces[0].Name
+                                : Name;
+
             var imageBytes = await httpClient.GetByteArrayAsync(ImageUris.Large);
-            var artPath = Path.Combine(settings.CustomPicsFolder, $"{Name}.jpg");
+            var artPath = Path.Combine(settings.CustomPicsFolder, $"{frontName}.jpg");
             File.WriteAllBytes(artPath, imageBytes);
 
             if (string.IsNullOrEmpty(BackName))

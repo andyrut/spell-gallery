@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_20C225A3E19E059FF0F0358970631AD8"
+        "MsmKey" = "8:_257B2001118A28987B1E17A149CC3188"
         "OwnerKey" = "8:_6D317B3A0A834720AFD9079163B894D0"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -82,7 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_20C225A3E19E059FF0F0358970631AD8"
+        "OwnerKey" = "8:_257B2001118A28987B1E17A149CC3188"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -200,14 +200,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_20C225A3E19E059FF0F0358970631AD8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_257B2001118A28987B1E17A149CC3188"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:AutoCompleteTextBox, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_20C225A3E19E059FF0F0358970631AD8"
+                    "_257B2001118A28987B1E17A149CC3188"
                     {
                     "Name" = "8:AutoCompleteTextBox.dll"
                     "Attributes" = "3:512"
@@ -400,15 +400,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Spell Gallery"
-        "ProductCode" = "8:{EAF967CD-ACF4-4252-8674-C4A491F818D1}"
-        "PackageCode" = "8:{E9F62756-4392-4482-B22C-3A1F35C937B9}"
+        "ProductCode" = "8:{B03EA7AF-B421-4DED-AF96-157AB96361F3}"
+        "PackageCode" = "8:{4ADB120A-7BA5-457D-BCE7-191F3CA55781}"
         "UpgradeCode" = "8:{244AE45B-B465-4CFA-9B93-19C55B779A8F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.3.1"
+        "ProductVersion" = "8:1.3.2"
         "Manufacturer" = "8:Andy Rutledge"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/andyrut/spell-gallery/issues"
@@ -950,7 +950,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6D317B3A0A834720AFD9079163B894D0"
             {
-            "SourcePath" = "8:..\\SpellGallery\\obj\\Release\\SpellGallery.exe"
+            "SourcePath" = "8:..\\SpellGallery\\obj\\Debug\\SpellGallery.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"

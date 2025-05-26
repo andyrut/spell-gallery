@@ -54,7 +54,7 @@ namespace SpellGallery
                 InitializeComponent();
 
                 XmlConfigurator.Configure();
-                log.Info($"Spell Gallery v{Assembly.GetExecutingAssembly().GetName().Version} program started.");
+                log.InfoFormat("Spell Gallery v{0} program started.", Assembly.GetExecutingAssembly().GetName().Version);
             }
             catch (Exception ex)
             {
@@ -172,7 +172,7 @@ namespace SpellGallery
 
                 var card = (Card)image.Tag;
                 await card.StoreAsync(httpClient, settings);
-                log.Debug($"Stored print for: {card.Name}");
+                log.DebugFormat("Stored print for: {0}", card.Name);
             }
             catch (Exception ex)
             {
@@ -273,12 +273,12 @@ namespace SpellGallery
             if (string.IsNullOrEmpty(cardName))
                 return;
 
-            log.Debug($"Searching Scryfall for: {cardName}");
+            log.DebugFormat("Searching Scryfall for: {0}", cardName);
 
             var cards = await ScryfallMethods.GetCardsByNameAsync(cardName);
             cards = cards.Select(x => (Card)x.Clone()).ToList();
 
-            log.Debug($"Scryfall search for [{cardName}] returned {cards.Count} result(s)");
+            log.DebugFormat("Scryfall search for [{0}] returned {1} result(s)", cardName, cards.Count);
 
             ThumbnailWrapPanel.Children.Clear();
             

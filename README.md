@@ -1,7 +1,7 @@
 # Spell Gallery
 
 ## Description
-A Windows app that assists in the selection of card art/print for specific cards in MTG Cockatrice.
+A Windows app that assists the selection of card art/print for specific cards in MTG Cockatrice.
 
 ## Download
 
@@ -25,6 +25,7 @@ Wizard icons created by Freepik - Flaticon
 Terms of Use: https://www.flaticon.com/legal
 
 ## Version History
+- v1.3.2.0 - Handles Omen cards
 - v1.3.1.4 - Installer fix (app launches with "object reference" error), dark README screenshot
 - v1.3.0.3 - Added light/dark/system mode for custom application appearance
 - v1.2.0.2 - Handles pagination for Scryfall card search - Shoutout to @zScribblez for the contribution!
