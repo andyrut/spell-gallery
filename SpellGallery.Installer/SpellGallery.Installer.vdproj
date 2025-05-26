@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1696C3D0E113493095DC954BE850EA02"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_257B2001118A28987B1E17A149CC3188"
         "OwnerKey" = "8:_6D317B3A0A834720AFD9079163B894D0"
         "MsmSig" = "8:_UNDEFINED"
@@ -521,7 +527,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5B603EFF8CFB40B392C72176DCE9C157"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_009798D62D4D471D91385E1BC7CDC4A6"
             {
             "Name" = "8:Spell Gallery"
             "Arguments" = "8:"
@@ -529,24 +535,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_6D317B3A0A834720AFD9079163B894D0"
-            "Folder" = "8:_522BDE74A6C348AAA9F44E5888E3919E"
-            "WorkingFolder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
-            "Icon" = "8:_2DA638FF4D2F45E3980D6025B7665983"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_708DF4CE84AA48359A8FA36F6A5C3D47"
-            {
-            "Name" = "8:Spell Gallery"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_6D317B3A0A834720AFD9079163B894D0"
+            "Target" = "8:_1696C3D0E113493095DC954BE850EA02"
             "Folder" = "8:_577968F61C914EAE85EE0957BCC9270C"
             "WorkingFolder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
-            "Icon" = "8:_2DA638FF4D2F45E3980D6025B7665983"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_162C6F583F134306900C5B967645FFD2"
+            {
+            "Name" = "8:Spell Gallery"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_1696C3D0E113493095DC954BE850EA02"
+            "Folder" = "8:_522BDE74A6C348AAA9F44E5888E3919E"
+            "WorkingFolder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -948,6 +954,34 @@
         }
         "ProjectOutput"
         {
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1696C3D0E113493095DC954BE850EA02"
+            {
+            "SourcePath" = "8:..\\AutoCompleteTextBox\\obj\\Debug\\net452\\AutoCompleteTextBox.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_0FD096EBEC9C4C02A7E55D11480ECFC4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{9E75AF9F-BB1E-42E5-A59E-D42FBBFEF2E0}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6D317B3A0A834720AFD9079163B894D0"
             {
             "SourcePath" = "8:..\\SpellGallery\\obj\\Debug\\SpellGallery.exe"
